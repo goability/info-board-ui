@@ -3,12 +3,18 @@ let screenSaverTimeOut = 5000;
 let refreshTime = 1000;
 let refreshInfo = 5000;
 let refreshUpcoming = 3000;
+let multiplyRefreshSeconds = 7;
+let multipleRefreshSolution = 5;
+
 let refreshTimer = setInterval(updateList, refreshInfo); 
 setInterval(updateTime, refreshTime); 
-setInterval(updateUpcoming, refreshUpcoming); 
+//setInterval(updateUpcoming, refreshUpcoming); 
+setInterval(updateMultiply, multiplyRefreshSeconds*1000);
 let infoCells = ['grocery-list', 'wish-list', 'chores'];
 let isSet = false;
 let isDark = false;
+
+let multiplicands = [9,9];
 
 let componentLarge = 'alerts'; 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -41,7 +47,7 @@ console.log(ul.outerHTML);
 
 function screenSaver(turnOn=false)
 {
-console.log('in timer');
+	console.log('in timer');
 //	clearInterval(sceenSaverTimer);
 	infoCells.forEach(item => {
 	 
@@ -100,6 +106,26 @@ function updateUpcoming(){
 	elUpcoming.innerHTML = getRandomValue(upcoming);
 	elAlerts.innerHTML = getRandomValue(alerts);
 }
+function updateMultiply(){
+	multiplicands.forEach((item, index) => {
+		multiplicands[index] = Math.random() * 12 + 0
+	});
+	var elMult1 = document.getElementById("mult1");
+	var elMult2 = document.getElementById("mult2");
+	var elProduct = document.getElementById("product");
+
+	elMult1.innerHTML = multiplicands[0].toFixed(0);
+	elMult2.innerHTML = multiplicands[1].toFixed(0);
+	let product = (multiplicands[0].toFixed(0) * multiplicands[1].toFixed(0)).toFixed(0);
+	elProduct.innerHTML = "???";
+	
+	setTimeout(() => {
+		elProduct.innerHTML = product;
+	}, multipleRefreshSolution*1000);
+
+
+	
+}
 function getRandomValue(item_list){
 	var array_len = item_list.length;
 	var randomIndex = Math.floor( Math.random() * array_len);
@@ -113,6 +139,89 @@ function toggleTimer()
 	document.getElementById("toggleButton").innerHTML = toggleText;
 
 }
+function get_image_urls(searchTerm, maxResults) {
+	const apiKey = '';
+	const cx = '';
+	const imageUrls = [];
+  
+	const url = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${searchTerm}&searchType=image&num=${maxResults}`;
+
+	return fetch(url)
+		.then(response => response.json())
+		.then(data => {
+			// Define valid image extensions
+			const validExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+			
+			// Filter the URLs to only include those with valid image extensions
+			const filteredUrls = data.items
+				.map(item => item.link)  // Extract the URLs
+				.filter(url => validExtensions.some(ext => url.toLowerCase().endsWith(`.${ext}`))); // Filter by valid extensions
+			
+			// Push the filtered URLs into the imageUrls array
+			filteredUrls.forEach(url => {
+				imageUrls.push(url);
+			});
+			console.log('got some images');
+			console.log(imageUrls);
+			return imageUrls;  // Resolve the promise with the imageUrls array
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			throw error;  // Reject the promise in case of an error
+		});
+}
+
+  async function cycleBackgroundImagesForChildren(parentDivId, interval) {
+    // Example usage:
+    let max_results = document.getElementById("button_bar").childElementCount;
+   
+	const fun_images = await get_image_urls('amori', max_results).then(imageUrls => {
+		console.log('Fetched image URLs:', imageUrls);
+	}).catch(error => {
+		console.error('Error fetching image URLs:', error);
+	});
+	
+
+    console.log('got images' + fun_images);
+    console.log('DOM loaded');
+
+    // Get the parent div element by its ID
+    const parentDivElement = document.getElementById(parentDivId);
+
+    // Get all child elements of the parent div
+    const childElements = parentDivElement.children;
+
+    // Initialize the index to keep track of the current image
+    let currentIndex = 0;
+    console.log(`cycling background images ${childElements.length} imagecount= ${fun_images}`);
+
+    // Set an interval to change the background image at a specified interval
+    setInterval(() => {
+        // Update the background image of each child element
+        for (let i = 0; i < childElements.length; i++) {
+            console.log(fun_images[currentIndex]);
+            // Set the background image of the child element to the current image URL
+            childElements[i].style.backgroundImage = `url('${fun_images[currentIndex]}')`;
+        }
+
+        // Increment the index
+        currentIndex++;
+
+        // Reset the index if it exceeds the number of images
+        if (currentIndex >= fun_images.length) {
+            currentIndex = 0;
+        }
+    }, interval);
+}
 
 
+
+
+
+//const fun_images = ['a','b'];
+document.addEventListener('DOMContentLoaded', () => {
+
+
+	//cycleBackgroundImagesForChildren('button_bar', 3000) // Changes background every 3 seconds
+});
 

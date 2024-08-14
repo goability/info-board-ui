@@ -1,13 +1,40 @@
-.currentTime { 
-	margin-top:20px; 
-	align:center; 
-	font-size:50
+.button_bar {
+	position: fixed;
+	top: 0;
+	left:0;
+	height: 100%;
+	width: 100px;
+	display: none;
 }
-.date-bar {font-size: 50px; text-align:center; margin-top:10px; }
+.button_slot {
+	margin: 5px;
+	background-color: rgb(255, 255, 255);
+	border: #000;
+	border-width:2px;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	visibility: visible;
+}
+.currentTime { 
+	text-align:right; 
+	font-size:50px;
+}
+.currentDate {
+	text-align: right;
+	font-size: 40px; 
+}
+.date-bar {
+	margin-top:10px;   
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%; 
+}
 .birthdaybanner {background-color:crimson; font-size: 100px; color:black; text-align:center; }
-.alerts {background-color:silver; margin-top:10px; color: red; }
-.upcoming {background-color:yellow; }
-.chore-list {background-color:lightblue; }
+.alerts {background-color:silver; margin-top:10px; color: red; display: none; }
+.upcoming {background-color:yellow; display: none; }
+.chore-list {background-color:lightblue; display: none;}
 .basic-cell {background-color:black; margin-top:30px; font-family:'Roboto', sans-serif}
 .basic-list { list-style-type: none; font-family:'Roboto', sans-serif; font-size: 30px; margin-top: 30px; }
 .basic-list ul { list-style-type: none; padding: 0; margin: 1; }
@@ -15,12 +42,13 @@
 
 .grocery-list {
 	background-color:lightgreen;  
+	display: none;
 }
-.wish-list {background-color:pink; }
-.meal-list {background-color:darkred; color:white;}
-.table-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border 1px solid #000 }
+.wish-list {background-color:pink; display: none; }
+.meal-list {background-color:darkred; color:white; display: none}
+.table-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border 1px solid #000; display: none;}
 .table-4 {
-	display: grid;
+	display: none;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 1px;
 	border: 1px solid #000
@@ -37,6 +65,7 @@
 }
 .alert-large {
 	font-size: 100px;
+	display: none;
 }
 body { background-color:black; font-family:'Playfair', sans-serif} 
 div { background-color:black; color:gray; font-size:50;}
@@ -45,8 +74,8 @@ div { background-color:black; color:gray; font-size:50;}
 	background-color: #000;
 	color: yellow;
 	font-size: xx-large;
-	display: grid; 
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	gap: 1px; 
 	border: 1;
 }
@@ -56,6 +85,7 @@ div { background-color:black; color:gray; font-size:50;}
 	padding: 2px;
 	text-align: center;
 	font-size: 100px;
+	color: yellow;
 }
 
-.table-2 {  solid #000 }
+.table-2 {  background-color: black; display: none }
