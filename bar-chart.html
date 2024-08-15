@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjustable Bar Chart</title>
+    <style>
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+        }
+
+        .bar {
+            width: 40px;
+            background-color: #4caf50;
+            text-align: center;
+            color: #fff;
+            margin: 0 5px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 5px 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bar-chart" id="barChart"></div>
+
+    <script>
+        function createBarChart(elementId, data, chartHeight) {
+            const chart = document.getElementById(elementId);
+            chart.style.height = chartHeight + 'px';
+
+            data.forEach(item => {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = (item.value / 100) * chartHeight + 'px'; // Adjust height based on value
+                bar.style.backgroundColor = item.color || '#4caf50'; // Optional: set a specific color
+                bar.textContent = item.value;
+
+                chart.appendChild(bar);
+            });
+        }
+
+        const data = [
+            { value: 30, color: '#4caf50' },
+            { value: 50, color: '#2196f3' },
+            { value: 40, color: '#ffeb3b' },
+            { value: 70, color: '#ff5722' },
+            { value: 90, color: '#9c27b0' },
+        ];
+
+        createBarChart('barChart', data, 300); // Adjust the chart height by changing the third parameter
+    </script>
+</body>
+</html>

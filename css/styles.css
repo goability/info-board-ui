@@ -46,22 +46,38 @@
 }
 .wish-list {background-color:pink; display: none; }
 .meal-list {background-color:darkred; color:white; display: none}
-.table-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border 1px solid #000; display: none;}
+.table-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: #000 1px; display: none;}
 .table-4 {
 	display: none;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 1px;
-	border: 1px solid #000
+	border: 1px dashed #000
+}
+.table_5 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 1px;
+	border: 1px dashed #f3340a;
 }
 .cell {
-	border: 1px solid #000;
-	padding: 3px;
+	border: 1px darkorange;
+	border-style: dashed;
+	padding: 2px;
 	text-align: center;
 	font-size: 30px;
+	color: yellow;
+}
+.cell_small {
+	border: 1px sienna;
+	border-style: double;
+	padding: 2px;
+	text-align: center;
+	font-size: 16px;
+	color: yellow;
 }
 .dark {
 	background-color:black;
-	font-color:gold;
+	color:gold;
 }
 .alert-large {
 	font-size: 100px;
@@ -89,3 +105,32 @@ div { background-color:black; color:gray; font-size:50;}
 }
 
 .table-2 {  background-color: black; display: none }
+
+.container {
+    display: flex;
+    flex-direction: column; /* Arrange child divs in a column (one per row) */
+    max-width: 100px; /* Optional: set a max width */
+    margin: 1px; /* Center the container horizontally */
+	font-size: 14px;
+}
+
+.row {
+    padding: 1px;
+    border: 1px solid #ddd; /* Border around each row */
+    background-color: yellow; /* Light background color */
+    margin-bottom: 1px; /* Space between rows */
+	font-size: inherit;
+}
+
+.row:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+}
+
+.row:hover {
+    background-color: #e0e0e0; /* Hover effect for rows */
+}
+
+.row:first-child {
+    font-weight: bold; /* Make the first row content bold */
+}
+

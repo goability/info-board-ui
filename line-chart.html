@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Chart</title>
+    <style>
+        .line-chart {
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="line-chart" id="lineChart"></canvas>
+
+    <script>
+        const canvas = document.getElementById('lineChart');
+        const ctx = canvas.getContext('2d');
+
+        const data = [30, 50, 40, 70, 50, 90, 100];
+        const maxData = Math.max(...data);
+        const canvasHeight = canvas.height;
+        const canvasWidth = canvas.width;
+        const stepX = canvasWidth / (data.length - 1);
+
+        ctx.beginPath();
+        ctx.moveTo(0, canvasHeight - (data[0] / maxData) * canvasHeight);
+        data.forEach((value, index) => {
+            const x = index * stepX;
+            const y = canvasHeight - (value / maxData) * canvasHeight;
+            ctx.lineTo(x, y);
+        });
+        ctx.strokeStyle = "#ff5722";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    </script>
+</body>
+</html>

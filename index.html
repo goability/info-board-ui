@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="css/styles.css"/>
+		<link rel="stylesheet" href="css/charts.css"/>
 	</head>
 	<body>
 		<div id="birthdaybanner" class="birthdaybanner">Happy Birthday Olivia</div>
@@ -24,19 +25,80 @@
 			<div id="multequals" class="mult_item">=</div>
 			<div id="product" class="mult_item">81</div>
 		</div>
+		<div id="dashboard" class="dashboard table">
+			<div id="chore-list" class="cell basic-list chore-list"></div>
+			<div id="wish-list" class="cell basic-list wish-list"></div>
+			<div id="grocery-list" class="cell basic-list grocery-list"></div>
+			<div id="meal-list" class="cell basic-list meal-list cell"></div>
+		</div>
+		<div id="upcoming" class="cell upcoming"></div>
+
+		<div id="alerts" class="cell alerts"></div>
+		<div id="countdown" class="cell alerts">123</div>
+
+		<div id="finance_strip" class="table_5">
+			<div id="budget" class="cell_small">
+				Spending
+			    <div class="bar-chart" id="barChart"></div>
+			</div>
+			<div id="debt" class="cell_small">
+				Utilities
+				<div class="pie-chart-container">
+					<div class="pie-chart" id="pieChart"></div>
+					<div class="label" id="label1"></div>
+					<div class="label" id="label2"></div>
+					<div class="label" id="label3"></div>
+					<div class="label" id="label4"></div>
+				</div>
+				<div class="label" id="label1"></div>
+				<div class="label" id="label2"></div>
+				<div class="label" id="label3"></div>
+				<div class="label" id="label4"></div>
+			</div>
+			<div id="eat-out" class="cell_small">eat-out
+				<div class="bar-chart" id="barChart_EatOut"></div>
+			</div>
+			<div id="savings" class="cell_small">Savings
+				<div class="bar-chart" id="barChart_Savings"></div>
+			</div>
+			<div id="goals" class="container">goals
+					<div class="row">Row 1 Content</div>
+					<div class="row">Row 2 Content</div>
+					<div class="row">Row 3 Content</div>
+					<div class="row">Row 4 Content</div>
+				</div>
+			</div>
+
 		</div>
 
+		<script src="scripts/scripts.js"></script>
+		<script src="scripts/charts.js"></script>
+		<script>
+			const bar_data = [
+					{ value: 30, color: '#4caf50' },
+					{ value: 50, color: '#2196f3' },
+					{ value: 40, color: '#ffeb3b' },
+					{ value: 70, color: '#ff5722' },
+					{ value: 90, color: '#9c27b0' },
+				];
 
-	<div id="dashboard" class="dashboard table">
-	  <div id="chore-list" class="cell basic-list chore-list"></div>
-	  <div id="wish-list" class="cell basic-list wish-list"></div>
-	  <div id="grocery-list" class="cell basic-list grocery-list"></div>
-	  <div id="meal-list" class="cell basic-list meal-list cell"></div>
-  		<div id="upcoming" class="cell upcoming"></div>
-	</div>
-	  <div id="alerts" class="cell alerts"></div>
-  	 <div id="countdown" class="cell alerts">123</div>
-	</div>
-	<script src="scripts/scripts.js"></script>
+			createBarChart('barChart', bar_data, 300); // Adjust the chart height by changing the third parameter
+			createBarChart('barChart_EatOut', bar_data, 300); // Adjust the chart height by changing the third parameter
+
+			createBarChart('barChart_Savings', bar_data, 300); // Adjust the chart height by changing the third parameter
+
+			const slices = [
+				{ color: '#4caf50', percent: 30 },
+				{ color: '#2196f3', percent: 25 },
+				{ color: '#ffeb3b', percent: 20 },
+				{ color: '#ff5722', percent: 25 },
+        	];
+
+			const labels = ['Internet', 'Power', 'Gas', 'Water'];
+
+			createPieChart('pieChart', slices, labels, 300);
+
+
+		</script>
 	</body>
 </html>

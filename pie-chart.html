@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjustable Pie Chart</title>
+    <style>
+        .pie-chart {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="pie-chart" id="pieChart"></div>
+
+    <script>
+        function createPieChart(elementId, slices, size) {
+            const chart = document.getElementById(elementId);
+            chart.style.width = size + 'px';
+            chart.style.height = size + 'px';
+
+            const gradients = slices.map((slice, index) => {
+                const prevPercent = slices.slice(0, index).reduce((acc, curr) => acc + curr.percent, 0);
+                return `${slice.color} ${prevPercent}% ${prevPercent + slice.percent}%`;
+            }).join(', ');
+
+            chart.style.background = `conic-gradient(${gradients})`;
+        }
+
+        const slices = [
+            { color: '#4caf50', percent: 30 },
+            { color: '#2196f3', percent: 25 },
+            { color: '#ffeb3b', percent: 20 },
+            { color: '#ff5722', percent: 25 },
+        ];
+
+        createPieChart('pieChart', slices, 300); // Adjust the size (radius) by changing the third parameter
+    </script>
+</body>
+</html>
