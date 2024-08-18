@@ -25,13 +25,13 @@
 	font-size: 40px; 
 }
 .date-bar {
-	margin-top:10px;   
+	margin-top:1px;   
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%; 
 }
-.birthdaybanner {background-color:crimson; font-size: 100px; color:black; text-align:center; }
+.birthdaybanner {background-color:crimson; font-size: 70px; color:black; text-align:center; }
 .alerts {background-color:silver; margin-top:10px; color: red; display: none; }
 .upcoming {background-color:yellow; display: none; }
 .chore-list {background-color:lightblue; display: none;}
@@ -88,8 +88,8 @@ div { background-color:black; color:gray; font-size:50;}
 
 .multiply_canvas {
 	background-color: #000;
-	color: yellow;
-	font-size: xx-large;
+	color: rgb(144, 124, 255);
+	font-size: 60px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	gap: 1px; 
@@ -100,8 +100,9 @@ div { background-color:black; color:gray; font-size:50;}
 	border-style: dashed;
 	padding: 2px;
 	text-align: center;
-	font-size: 100px;
-	color: yellow;
+	font-size: 80px;
+	color: rgb(255, 123, 0);
+	background-color: #000000;
 }
 
 .table-2 {  background-color: black; display: none }
@@ -133,4 +134,32 @@ div { background-color:black; color:gray; font-size:50;}
 .row:first-child {
     font-weight: bold; /* Make the first row content bold */
 }
+
+.header_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  /* Vertically centers the content */
+    max-height: 200px;
+    padding: 10px; /* Optional: Adjust padding as needed */
+}
+
+.left-content {
+	margin-top: 20px;
+    display: flex;
+    flex-direction: column;  /* Stack text and image vertically */
+    justify-content: center; /* Center the text and image vertically */
+    flex: 1;
+    text-align: left;
+}
+
+.right-content {
+    text-align: right;
+}
+
+.left-content img, .right-content img {
+    max-height: 200px;
+    height: auto;
+    width: auto; /* Maintains aspect ratio */
+}
+
 

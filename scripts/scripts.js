@@ -171,7 +171,7 @@ function get_image_urls(searchTerm, maxResults) {
 		});
 }
 
-  async function cycleBackgroundImagesForChildren(parentDivId, interval) {
+async function cycleBackgroundImagesForChildren(parentDivId, interval) {
     // Example usage:
     let max_results = document.getElementById("button_bar").childElementCount;
    
@@ -216,12 +216,28 @@ function get_image_urls(searchTerm, maxResults) {
 
 
 
+async function loadStatesAndCapitals() {
+	try {
+	  const response = await fetch('http:///data/statesAndCapitals.json');
+	  const statesAndCapitals = await response.json();
+	  return statesAndCapitals;
+	} catch (error) {
+	  console.error('Error loading data:', error);
+	}
+  }
+  
+  // Usage
+
 
 
 //const fun_images = ['a','b'];
 document.addEventListener('DOMContentLoaded', () => {
+	loadStatesAndCapitals().then(data => {
+		console.log(data);
+	  });
 
 
 	//cycleBackgroundImagesForChildren('button_bar', 3000) // Changes background every 3 seconds
 });
+
 

@@ -1,0 +1,58 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000000, #191970);
+    position: relative;
+    overflow: hidden;
+}
+
+.moon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffff99, #ffff99 15%, #e6e6e6 30%, #e6e6e6);
+    box-shadow: 0 0 20px #ffff99;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom 15s ease-out;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle linear infinite;
+}
+
+.cloud {
+    position: absolute;
+    height: 100px;
+    animation: floatCloud 1s linear infinite;  /* Adjust the duration as needed */
+}
+
+.cloud-part {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+@keyframes floatCloud {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}

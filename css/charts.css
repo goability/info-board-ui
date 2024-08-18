@@ -2,27 +2,27 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    width: 400px;
-    height: 300px;
-    margin: 50px auto;
-    border: 1px solid #ccc;
+    width: 200px;
+    height: 100px;
+    margin: 3px auto;
+    border: none;
 }
 
 .bar {
-    width: 40px;
+    width: 30px;
     background-color: #4caf50;
     text-align: center;
     color: #fff;
-    margin: 0 5px;
+    margin: 0 2px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 5px 5px 0 0;
 }
 
 .line-chart {
-    width: 400px;
+    width: 300px;
     height: 200px;
     margin: 50px auto;
 }
@@ -30,8 +30,8 @@
 .pie-chart-container {
     position: relative;
     width: 300px;
-    height: 300px;
-    margin: 50px auto;
+    height: 200px;
+    margin: 1px auto;
 }
 
 .pie-chart {
