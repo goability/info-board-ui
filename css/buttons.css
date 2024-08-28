@@ -1,0 +1,18 @@
+.button_bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100px;
+}
+
+.button_slot {
+	margin: 5px;
+	background-color: rgb(255, 255, 255);
+	border: #000;
+	border-width: 2px;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	visibility: visible;
+}

@@ -1,0 +1,22 @@
+.component_canvas {
+	background-color: #000;
+	color: rgb(144, 124, 255);
+	font-size: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 1px;
+	border: 1;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.component_item {
+	border: 1px darkorange;
+	border-style: dashed;
+	padding: 1px;
+	text-align: center;
+	font-size: 50px;
+	color: rgb(255, 123, 0);
+	background-color: #000000;
+    text-align: center;
+}

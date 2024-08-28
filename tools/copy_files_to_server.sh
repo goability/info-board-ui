@@ -12,6 +12,6 @@ scp -r $LOCAL_DIR/index.html $USER@$SERVER:$REMOTE_DIR
 scp -r $LOCAL_DIR/scripts/* $USER@$SERVER:$REMOTE_DIR/scripts
 scp -r $LOCAL_DIR/css/* $USER@$SERVER:$REMOTE_DIR/css
 scp -r $LOCAL_DIR/images/* $USER@$SERVER:$REMOTE_DIR/images
-
+scp -r $LOCAL_DIR/data/* $USER@$SERVER:$REMOTE_DIR/data
 # Execute the script on the remote server
 ssh $USER@$SERVER "bash $REMOTE_SCRIPT"

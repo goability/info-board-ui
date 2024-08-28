@@ -27,8 +27,14 @@ function createPieChart(elementId, slices, labels, size) {
 }
 function createBarChart(elementId, data, chartHeight) {
     const chart = document.getElementById(elementId);
+
+    // Clear any existing bars
+    chart.innerHTML = '';
+
+    // Set the chart's height
     chart.style.height = chartHeight + 'px';
 
+    // Create bars for each data item
     data.forEach(item => {
         const bar = document.createElement('div');
         bar.className = 'bar';

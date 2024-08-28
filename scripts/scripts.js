@@ -3,20 +3,20 @@ let screenSaverTimeOut = 5000;
 let refreshTime = 1000;
 let refreshInfo = 5000;
 let refreshUpcoming = 3000;
-let multiplyRefreshSeconds = 7;
-let multipleRefreshSolution = 5;
 
-let refreshTimer = setInterval(updateList, refreshInfo); 
+let bar_chart_data = [];
+let temp = 1 ;
+
+setInterval(updateList, refreshInfo); 
 setInterval(updateTime, refreshTime); 
-//setInterval(updateUpcoming, refreshUpcoming); 
-setInterval(updateMultiply, multiplyRefreshSeconds*1000);
+setInterval(updateUpcoming, refreshUpcoming); 
+
 let infoCells = ['grocery-list', 'wish-list', 'chores'];
 let isSet = false;
 let isDark = false;
 
-let multiplicands = [9,9];
 
-let componentLarge = 'alerts'; 
+
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -28,10 +28,11 @@ const grocery = ['dr. pepper', 'toilet-paper', 'salt', 'milk'];
 const upcoming = ['NO GUITAR ON MONDAY', 'Piano Wednesday at 11', '3D Print Next Wednesday', 'Football Tickets Delivered this week ', 'Dungeons and Dragons Wednesday at 6'];
 
 const meals = ['Pizza', 'Pot Pie', 'Shrimp', 'PeanutButter', 'salad', 'strawberries', 'pasta', 'bread/toast', 'cheese-toast'];
-const alerts = ['Olivia\'s Birthday - August 10'];
+const alerts = [' '];
   
 document.getElementById("grocery-list").innerHTML = hydrate_list(grocery);
 document.getElementById("meal-list").innerHTML = hydrate_list(meals);
+
 function hydrate_list(item_list){
    let ul = document.createElement('ul');
 
@@ -41,8 +42,8 @@ function hydrate_list(item_list){
 	ul.appendChild(li);
      }
    )	 
-console.log(ul.outerHTML);   
-   return ul.outerHTML; 
+	console.log(ul.outerHTML);   
+	return ul.outerHTML; 
 }
 
 function screenSaver(turnOn=false)
@@ -65,8 +66,6 @@ function screenSaver(turnOn=false)
 	isDark = !isDark;
 
 	screenSaverTimer = setInterval(screenSaver, theTimeOut); 
-	
-
 }
 function updateTime() 
 { 
@@ -91,41 +90,12 @@ function updateUpcoming(){
 
 	var elUpcoming = document.getElementById("upcoming")
 	var elAlerts = document.getElementById("alerts");
-/*	if(componentLarge ==='alerts'){
-		 componentLarge = 'upcoming';
-		 elUpcoming.classList.add('alert-large');
-		 elAlerts.classList.remove('alert-large');
- 	} else {
-		componentLarget = 'upcoming';
-		elAlerts.classList.add('alert-large');
-		elUpcoming.classList.remove('alert-large');
-	}
-*/
-		 elAlerts.classList.add('alert-large');
+	elAlerts.classList.add('alert-large');
  
 	elUpcoming.innerHTML = getRandomValue(upcoming);
 	elAlerts.innerHTML = getRandomValue(alerts);
 }
-function updateMultiply(){
-	multiplicands.forEach((item, index) => {
-		multiplicands[index] = Math.random() * 12 + 0
-	});
-	var elMult1 = document.getElementById("mult1");
-	var elMult2 = document.getElementById("mult2");
-	var elProduct = document.getElementById("product");
 
-	elMult1.innerHTML = multiplicands[0].toFixed(0);
-	elMult2.innerHTML = multiplicands[1].toFixed(0);
-	let product = (multiplicands[0].toFixed(0) * multiplicands[1].toFixed(0)).toFixed(0);
-	elProduct.innerHTML = "???";
-	
-	setTimeout(() => {
-		elProduct.innerHTML = product;
-	}, multipleRefreshSolution*1000);
-
-
-	
-}
 function getRandomValue(item_list){
 	var array_len = item_list.length;
 	var randomIndex = Math.floor( Math.random() * array_len);
@@ -214,30 +184,31 @@ async function cycleBackgroundImagesForChildren(parentDivId, interval) {
     }, interval);
 }
 
-
-
-async function loadStatesAndCapitals() {
+async function loadDataItems(dataName) {
 	try {
-	  const response = await fetch('http:///data/statesAndCapitals.json');
-	  const statesAndCapitals = await response.json();
-	  return statesAndCapitals;
+	  const response = await fetch(`http://localhost:9000/${dataName}.json`);
+	  console.log(`getting data from ${dataName}`);
+	  return await response.json();
 	} catch (error) {
-	  console.error('Error loading data:', error);
+	  console.error(`Error loading data for ${dataName}:`, error);
 	}
   }
-  
-  // Usage
 
-
-
-//const fun_images = ['a','b'];
 document.addEventListener('DOMContentLoaded', () => {
-	loadStatesAndCapitals().then(data => {
-		console.log(data);
-	  });
+	  //let configEndpoint = 'http://localhost://7000/config.json';
 
-
+	  //console.log('DOM loaded, loading configuration from');
+	  document.title = "Information Board";
+/*
+	  const refreshBarChart = () => {
+		loadDataItems('bar_chart_data').then(data => {
+			console.log(data);
+			bar_chart_data = data;
+			createBarChart('barChart', bar_chart_data, temp++); // Adjust the chart height by changing the third parameter		  
+		  });
+		
+		};
+	  setInterval(refreshBarChart, 100000);
+	  */
 	//cycleBackgroundImagesForChildren('button_bar', 3000) // Changes background every 3 seconds
 });
-
-
