@@ -7,9 +7,9 @@ let refreshUpcoming = 3000;
 let bar_chart_data = [];
 let temp = 1 ;
 
-setInterval(updateList, refreshInfo); 
+//setInterval(updateList, refreshInfo); 
 setInterval(updateTime, refreshTime); 
-setInterval(updateUpcoming, refreshUpcoming); 
+//setInterval(updateUpcoming, refreshUpcoming); 
 
 let infoCells = ['grocery-list', 'wish-list', 'chores'];
 let isSet = false;
