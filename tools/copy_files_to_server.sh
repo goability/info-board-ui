@@ -4,7 +4,8 @@
 USER="matt"
 SERVER="192.168.0.68"
 REMOTE_DIR="/home/matt/website/"
-LOCAL_DIR="/Users/matt/workspace/dev/info-board-ui"
+LOCAL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
+echo $LOCAL_DIR
 REMOTE_SCRIPT="/home/matt/website/tools/info_board_refresh.sh"
 
 # Copy files to the server
