@@ -9,11 +9,11 @@
 }
 
 .mult_item {
-	border: 1px darkorange;
-	border-style: dashed;
+	border: 1px rgb(251, 251, 251);
+	border-style: none;
 	padding: 1px;
 	text-align: center;
 	font-size: 80px;
-	color: rgb(255, 123, 0);
+	color: rgb(255, 255, 255);
 	background-color: #000000;
 }

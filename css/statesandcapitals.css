@@ -1,22 +1,23 @@
 .component_canvas {
-	background-color: #13bbd5;
-	color: rgb(41, 3, 253);
-	font-size: 40px;
+	background-color: rgba(0, 0, 0, 0.566);
+	color: rgb(166, 255, 246);
+	font-size: 38px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 1px;
 	border: 1;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
+	margin-bottom: 5px;
 }
 
 .component_item {
 	border: 1px rgb(25, 0, 255);
-	border-style: dashed;
+	border-style: none;
 	padding: 1px;
 	text-align: center;
-	font-size: 30px;
-	color: rgb(255, 123, 0);
+	font-size: 42px;
+	color: rgb(192, 217, 249);
 	background-color: #000000;
     text-align: center;
 }
