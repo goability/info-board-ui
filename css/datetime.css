@@ -1,0 +1,38 @@
+.date_bar {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Two columns: image on the left, text on the right */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 10px; /* Optional: space between image and text */
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: white;
+    color: #000;
+}
+
+.left-image {
+    grid-row: span 2; /* Image spans two rows */
+    max-height: 100px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.text-container {
+    display: grid;
+    grid-template-rows: auto auto; /* Two rows for time and date */
+    text-align: right;
+}
+
+.currentTime {
+    font-size: 50px;
+    background-color: white;
+    color: black;
+}
+
+.currentDate {
+    font-size: 40px;
+    background-color: white;
+    color: black;
+}

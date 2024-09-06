@@ -219,8 +219,7 @@ async function loadDataItems(dataName) {
 function updateStateCapital(){
 	const randomIndex = Math.floor(Math.random() * statesAndCapitalData.length);
     const randomState = statesAndCapitalData[randomIndex];
-    console.log(`Random State: ${randomState.state}, Capital: ${randomState.capital}`);
-
+   
     let state = randomState.state;
     let capital = randomState.capital;
 	var elState = document.getElementById("component_state");

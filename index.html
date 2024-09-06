@@ -9,15 +9,22 @@
 		<link rel="stylesheet" href="css/math.css"/>
 		<link rel="stylesheet" href="css/statesandcapitals.css"/>
 		<link rel="stylesheet" href="css/upcoming.css"/>
+		<link rel="stylesheet" href="css/imageslider.css"/>
+		<link rel="stylesheet" href="css/datetime.css"/>
 		<title>Infobar</title>
 	</head>
 	<body>
+		<div class="main_container">
 		<div id="header_top" class="header_top hidden">
 			<div>ivy  is going to sams soon</div>
 		</div>
 		<div id="date_bar" class="date_bar">
+			<img id="cur-moon" src="https://www.timeanddate.com/scripts/moon.php?i=0.125&amp;p=.3&amp;r=0.311" width="100" height="100" class="left-image">
 			<div id="time" class="currentTime"></div>
 			<div id="date" class="currentDate"></div>
+		</div>
+		<div class="image_slider hidden" id="image_slider">
+			<img src="https://pusheen.com/wp-content/themes/pusheen-custom/img/header-pusheen.gif" alt="Sliding Image">
 		</div>
 		<p></p>
 		<div id="multiply_canvas" class="multiply_canvas hidden">
@@ -32,31 +39,31 @@
 			<div id="component_state" class="component_item"></div> is 
 			<div id="component_capital" class="component_item"></div>
 		</div>
-		<div id="upcoming" class="upcoming">
-			<ul id="upcoming_list" class="upcoming_list">
+
+
+
+		<div class="upcoming">
+			<ul id="upcoming_list" class="upcoming-list">
+				<!-- Items will be populated here by JavaScript -->
 			</ul>
 		</div>
+		<div style="padding: 4px; margin-top: 20px; margin-left: 20px;"></div>
+
 		
 		<div id="button_bar" class="button_bar hidden">
 			<div class="button_slot">&nbsp;</div>
 			<div class="button_slot">&nbsp;</div>
 			<div class="button_slot">&nbsp;</div>
 		</div>
-		<div class="container">
-
-
-
+		<div class="container hidden">
 			<div id="dashboard" class="dashboard table_4 hidden">
 				<div id="chore-list" class="cell basic-list chore-list"></div>
 				<div id="wish-list" class="cell basic-list wish-list"></div>
 				<div id="grocery-list" class="cell basic-list grocery-list"></div>
 				<div id="meal-list" class="cell basic-list meal-list cell"></div>
 			</div>
-
-
 			<div id="alerts" class="cell alerts hidden"></div>
 			<div id="countdown" class="cell alerts hidden">123</div>
-
 			<div id="finance_strip" class="table_5 hidden">
 				<div id="budget" class="cell_small">
 					Spending
@@ -99,18 +106,14 @@
 						<div class="row">Ham</div>
 					</div>
 				</div>
-
-			</div>
-	
-			<div class="scene" id="scene">
-				<div class="moon"></div>
 			</div>
 			<!-- <div id="chore-list" class="cell basic-list chore-list"></div>-->
-	
 		</div>
-
+		<div class="scene hidden" id="scene">
+			<div class="moon"></div>
+		</div>
+	</div>
 		<script src="scripts/scripts.js"></script>
-		
 		<script src="scripts/charts.js"></script>
 	
 		<script>
@@ -128,10 +131,11 @@
 
 		</script>
 
-		<script src="scripts/backgrounds.js"></script>
+		<!-- <script src="scripts/backgrounds.js"></script> -->
 		<script src="scripts/math.js"></script>
 		<script src="scripts/statesandcapitals.js"></script>
 		<script src="scripts/upcoming.js"></script>
+	<!-- 	<script src="scripts/image_slider.js"></script> -->
 
 	</body>
 </html>

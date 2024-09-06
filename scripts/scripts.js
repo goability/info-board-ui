@@ -1,8 +1,10 @@
+
 let stayDarkTime = 3000;
 let screenSaverTimeOut = 5000;
 let refreshTime = 1000;
 let refreshInfo = 5000;
 let refreshUpcoming = 3000;
+let sliderHold = 10000;
 
 let bar_chart_data = [];
 let temp = 1 ;
@@ -195,10 +197,25 @@ async function loadDataItems(dataName) {
   }
 
 document.addEventListener('DOMContentLoaded', () => {
+	const slider = document.getElementById('image_slider'); // Select the sliding image container
+
+	// Function to slide the image up
+function slideUp() {
+    slider.style.bottom = '0'; // Bring the slider up to the view
+	console.log('sliding up');
+}
+
+// Function to slide the image down
+function slideDown() {
+    slider.style.bottom = '-100%'; // Move the slider back off the screen
+}
 	  //let configEndpoint = 'http://localhost://7000/config.json';
 
 	  //console.log('DOM loaded, loading configuration from');
 	  document.title = "Information Board";
+
+	      // Slide the image up, wait for a while, and slide it back down
+
 /*
 	  const refreshBarChart = () => {
 		loadDataItems('bar_chart_data').then(data => {

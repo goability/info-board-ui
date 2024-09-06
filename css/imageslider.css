@@ -1,0 +1,18 @@
+/* Style for the image container that will slide */
+.image-slider {
+    position: fixed;
+    bottom: -100%; /* Start off-screen */
+    left: 0;
+    width: 100%; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height to your needs */
+    background-color: transparent;
+    z-index: 4; /* Behind the date_bar */
+    overflow: hidden;
+    transition: bottom 10s ease-in-out; /* Slow transition */
+}
+
+.image-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust to keep image aspect ratio */
+}

@@ -2,10 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const moon = document.querySelector('.moon');
     const scene = document.querySelector('.scene');
 
-    // Start the moon rising animation
-    setTimeout(() => {
-        moon.style.bottom = `${scene.clientHeight - 150}px`;
-    }, 1000);
+    // Function to animate the moon rising and resetting
+    function startMoonAnimation() {
+        moon.style.transform = 'translateX(-50%) translateY(0)'; // Start moon at bottom
+        setTimeout(() => {
+            moon.style.transform = `translateX(-50%) translateY(-${scene.clientHeight - 150}px)`; // Animate moon rising
+        }, 1000); // Start rising after 1 second
+
+        // After the rise completes, reset the moon after a delay of 5 seconds
+        setTimeout(() => {
+            moon.style.transform = 'translateX(-50%) translateY(0)'; // Reset moon position to bottom
+        }, 11000); // Reset after 10 seconds of rising + 1 second delay
+    }
+
+    // Start the moon animation loop every 15 seconds (10s rising + 5s delay)
+    setInterval(startMoonAnimation, 15000);
+
+    // Start the first moon rise immediately
+    startMoonAnimation();
 
     // Add stars to the scene
     for (let i = 0; i < 1000; i++) {
