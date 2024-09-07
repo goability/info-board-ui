@@ -2,31 +2,35 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/styles.css"/>
-		<link rel="stylesheet" href="css/charts.css"/>
-		<link rel="stylesheet" href="css/backgrounds.css"/>
-		<link rel="stylesheet" href="css/buttons.css"/>
-		<link rel="stylesheet" href="css/math.css"/>
-		<link rel="stylesheet" href="css/statesandcapitals.css"/>
-		<link rel="stylesheet" href="css/upcoming.css"/>
-		<link rel="stylesheet" href="css/imageslider.css"/>
-		<link rel="stylesheet" href="css/datetime.css"/>
 		<title>Infobar</title>
+		<link rel="stylesheet" href="css/alerts.css"/>
+		<link rel="stylesheet" href="css/backgrounds.css"/>
+		<link rel="stylesheet" href="css/birthday.css"/>
+		<link rel="stylesheet" href="css/buttons.css"/>
+		<link rel="stylesheet" href="css/charts.css"/>
+		<link rel="stylesheet" href="css/chores.css"/>
+		<link rel="stylesheet" href="css/datetime.css"/>
+		<link rel="stylesheet" href="css/grocery.css"/>
+		<link rel="stylesheet" href="css/imageslider.css"/>
+		<link rel="stylesheet" href="css/math.css"/>
+		<link rel="stylesheet" href="css/meals.css"/>
+		<link rel="stylesheet" href="css/statesandcapitals.css"/>
+		<link rel="stylesheet" href="css/styles.css"/>
+		<link rel="stylesheet" href="css/upcoming.css"/>
+		<link rel="stylesheet" href="css/wish.css"/>
+
 	</head>
 	<body>
 		<div class="main_container">
-		<div id="header_top" class="header_top hidden">
-			<div>ivy  is going to sams soon</div>
-		</div>
+
 		<div id="date_bar" class="date_bar">
-			<img id="moon_phase_image" src="https://www.timeanddate.com/scripts/moon.php?i=.99&amp;p=.3&amp;r=0.311" width="100" height="100" class="left-image">
+			<img id="moon_phase_image" src="https://www.timeanddate.com/scripts/moon.php?i=.99&amp;p=.3&amp;r=0.311" width="100" height="100" class="left-image">	
 			<div id="time" class="currentTime"></div>
 			<div id="date" class="currentDate"></div>
 		</div>
 		<div class="image_slider hidden" id="image_slider">
 			<img src="https://pusheen.com/wp-content/themes/pusheen-custom/img/header-pusheen.gif" alt="Sliding Image">
 		</div>
-		<p></p>
 		<div id="multiply_canvas" class="multiply_canvas hidden">
 			<div id="mult1" class="mult_item">9</div>
 			<div id="operand" class="mult_item">X</div>
@@ -34,7 +38,7 @@
 			<div id="multequals" class="mult_item">=</div>
 			<div id="product" class="mult_item">81</div>
 		</div>
-		<div id="state_canvas" class="component_canvas">
+		<div id="state_canvas" class="component_canvas hidden">
 			Capital of 
 			<div id="component_state" class="component_item"></div> is 
 			<div id="component_capital" class="component_item"></div>
@@ -44,12 +48,15 @@
 
 		<div class="upcoming">
 			<ul id="upcoming_list" class="upcoming-list">
-				<!-- Items will be populated here by JavaScript -->
 			</ul>
 		</div>
-		<div style="padding: 4px; margin-top: 20px; margin-left: 20px;"></div>
-
-		
+	
+		<div class="countdown hidden">
+			<div class="countdown_timer" id="countdown_timer"></div>
+		</div>
+		<div id="header_top" class="alert">
+			<div>Maker Faire 9-12 today</div>
+		</div>
 		<div id="button_bar" class="button_bar hidden">
 			<div class="button_slot">&nbsp;</div>
 			<div class="button_slot">&nbsp;</div>

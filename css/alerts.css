@@ -1,0 +1,8 @@
+.alerts {
+	background-color: silver;
+	margin-top: 10px;
+	color: red;
+}
+.alert-large {
+	font-size: 100px;
+}
