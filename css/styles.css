@@ -7,6 +7,7 @@ html, body {
 body {
     min-height: 100vh; /* Ensures body takes at least 100% of the viewport height */
     box-sizing: border-box; /* Includes padding and borders in the height calculation */
+	overflow: hidden;
 }
 
 
