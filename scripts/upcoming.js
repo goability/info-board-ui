@@ -2,7 +2,7 @@ let upcoming_data = [
     {
         "id": 1,
         "title": "Mom",
-        "description": "Hair Leave at 1:30 !",
+        "description": "Tiger",
         "start_date" : "2024-08-31",
         "due_date": "2024-09-03",
         "completed": false,
@@ -12,7 +12,7 @@ let upcoming_data = [
     {
         "id": 2,
         "title": "Dad",
-        "description": "Find 19v cable",
+        "description": "Haircut at 3:30",
         "start_date" : "2024-08-31",
         "due_date": "2024-09-03",
         "completed": false,
@@ -22,7 +22,7 @@ let upcoming_data = [
     {
         "id": 5,
         "title": "Violet",
-        "description": "Litter box, upstairs laundry and trash",
+        "description": "Tiger",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -32,7 +32,7 @@ let upcoming_data = [
     {
         "id": 4,
         "title": "Olivia",
-        "description": "Kitchen dishes and table, room trash",
+        "description": "Guitar, Math",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -42,7 +42,7 @@ let upcoming_data = [
     {
         "id": 6,
         "title": "Ivy",
-        "description": "Yard dog poop",
+        "description": "Tiger",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -52,7 +52,7 @@ let upcoming_data = [
     {
         "id": 3,
         "title": "Ethan",
-        "description": "Bathroom, laundry, trash",
+        "description": "Guitar, Math",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
