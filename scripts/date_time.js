@@ -75,13 +75,17 @@ function getMoonData(dateStr) {
     if (cyclePosition <= lunarCycleDays / 2) {
         // Waxing phase: i increases by 0.07 per day
         i = Math.min(0.07 * cyclePosition, 0.99);
+        p = 8;
     } else {
         // Waning phase: i decreases by 0.07 per day
         i = Math.max(0.99 - 0.07 * (cyclePosition - lunarCycleDays / 2), 0);
+        p = 3;
     }
+    if (daysSinceNewMoon>2)
+        i += .05 //hard-coded adjust
 
     // Phase (p) is proportional to the cycle position, converted to radians
-    p = (cyclePosition / lunarCycleDays) * 2 * Math.PI;
+   // p = (cyclePosition / lunarCycleDays) * 2 * Math.PI;
 
     // Return result
     return {
@@ -93,11 +97,12 @@ function getMoonData(dateStr) {
 
 
 function getMoonPhaseURL(targetDate){
+  // targetDate = "10-03-2024"
     console.log(`Getting data for ${targetDate}`)
     // Example usage:
     const moonData = getMoonData(targetDate);//'09-17-2024'
     console.log(moonData);  // { i: 0.789, p: 5.94 }
-    const url_template = "https://www.timeanddate.com/scripts/moon.php?i=MOON_ILLUMINATION&amp;p=MOON_P&amp;r=MOON_R";
+    const url_template = "https://www.timeanddate.com/scripts/moon.php?i=MOON_ILLUMINATION&p=MOON_P&r=MOON_R";
  
     return url_template.replace("MOON_ILLUMINATION", moonData.i).replace("MOON_P", moonData.p).replace("MOON_R", moonData.r);
 }
