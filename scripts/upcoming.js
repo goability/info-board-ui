@@ -2,7 +2,7 @@ let upcoming_data = [
     {
         "id": 1,
         "title": "Mom",
-        "description": "Fall Craft Planning",
+        "description": "Paint",
         "start_date" : "2024-08-31",
         "due_date": "2024-09-03",
         "completed": false,
@@ -12,7 +12,7 @@ let upcoming_data = [
     {
         "id": 2,
         "title": "Dad",
-        "description": "Yard-work, Put away ACs",
+        "description": "ACs",
         "start_date" : "2024-08-31",
         "due_date": "2024-09-03",
         "completed": false,
@@ -22,7 +22,7 @@ let upcoming_data = [
     {
         "id": 5,
         "title": "Violet",
-        "description": "Brush Cat, Yard Poop",
+        "description": "Math",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -32,7 +32,7 @@ let upcoming_data = [
     {
         "id": 4,
         "title": "Olivia",
-        "description": "Guitar, Math",
+        "description": "Piano",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -42,7 +42,7 @@ let upcoming_data = [
     {
         "id": 6,
         "title": "Ivy",
-        "description": "Toy Sort",
+        "description": "Piano",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
@@ -52,7 +52,7 @@ let upcoming_data = [
     {
         "id": 3,
         "title": "Ethan",
-        "description": "Guitar, Math, Nightstand",
+        "description": "Piano",
         "start_date" : "2024-09-02",
         "due_date": "2024-09-02",
         "completed": false,
