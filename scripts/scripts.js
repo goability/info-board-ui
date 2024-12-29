@@ -69,6 +69,27 @@ function screenSaver(turnOn=false)
 
 	screenSaverTimer = setInterval(screenSaver, theTimeOut); 
 }
+function get_countdown_time_remaining()
+{
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const nextYear = currentYear + 1;
+    const newYears = new Date(nextYear, 0, 1); // Jan 1st of next year
+    
+    const timeLeft = newYears - now;
+    
+    // Convert to days, hours, minutes, seconds
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = (days)*24 + Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    
+	const paddedHours = String(hours).padStart(2, '0');
+	const paddedMinutes = String(minutes).padStart(2, '0');
+	const paddedSeconds = String(seconds).padStart(2, '0');
+
+    return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+}	
 function updateTime() 
 { 
 	const d = new Date();  
@@ -82,6 +103,8 @@ function updateTime()
 	document.getElementById("date").innerHTML = currentDate;
 	var timeOptions = { hour:'numeric', minute:'numeric', hour12:true, second:'numeric'}; 
 	document.getElementById("time").innerHTML = d.toLocaleString(undefined, timeOptions);
+	document.getElementById("new_year_countdown").innerHTML = get_countdown_time_remaining();
+
 }
 function updateList(){	
 	document.getElementById("chore-list").innerHTML = getRandomValue(chores);

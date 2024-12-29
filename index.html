@@ -1,34 +1,34 @@
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Infobar</title>
-		<link rel="stylesheet" href="css/alerts.css"/>
-		<link rel="stylesheet" href="css/backgrounds.css"/>
-		<link rel="stylesheet" href="css/birthday.css"/>
-		<link rel="stylesheet" href="css/buttons.css"/>
-		<link rel="stylesheet" href="css/charts.css"/>
-		<link rel="stylesheet" href="css/chores.css"/>
-		<link rel="stylesheet" href="css/datetime.css"/>
-		<link rel="stylesheet" href="css/grocery.css"/>
-		<link rel="stylesheet" href="css/imageslider.css"/>
-		<link rel="stylesheet" href="css/math.css"/>
-		<link rel="stylesheet" href="css/meals.css"/>
-		<link rel="stylesheet" href="css/statesandcapitals.css"/>
 
-		<link rel="stylesheet" href="css/upcoming.css"/>
-		<link rel="stylesheet" href="css/wish.css"/>
-		<link rel="stylesheet" href="css/styles.css"/>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Infobar</title>
+	<link rel="stylesheet" href="css/alerts.css" />
+	<link rel="stylesheet" href="css/backgrounds.css" />
+	<link rel="stylesheet" href="css/birthday.css" />
+	<link rel="stylesheet" href="css/buttons.css" />
+	<link rel="stylesheet" href="css/charts.css" />
+	<link rel="stylesheet" href="css/chores.css" />
+	<link rel="stylesheet" href="css/datetime.css" />
+	<link rel="stylesheet" href="css/grocery.css" />
+	<link rel="stylesheet" href="css/imageslider.css" />
+	<link rel="stylesheet" href="css/math.css" />
+	<link rel="stylesheet" href="css/meals.css" />
+	<link rel="stylesheet" href="css/statesandcapitals.css" />
+	<link rel="stylesheet" href="css/upcoming.css" />
+	<link rel="stylesheet" href="css/wish.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/newyear.css" />
 
-	</head>
-	<body>
-		<div class="main_container">
-			<div id="header_top" class="alert hidden">	
-				<div>Ivy Dance Class - 3:30</div>
-			</div>
+</head>
 
+<body>
+	<div class="main_container">
+		<div id="header_top" class="alert hidden">
+			<div>Ivy Dance Class - 3:30</div>
+		</div>
 		<div id="date_bar" class="date_bar">
-
 			<div id="time" class="currentTime"></div>
 			<div id="date" class="currentDate"></div>
 		</div>
@@ -39,117 +39,139 @@
 		<div id="multiply_canvas" class="multiply_canvas hidden">
 			<div id="mult1" class="mult_item">9</div>
 			<div id="operand" class="mult_item">X</div>
-			<div id="mult2"  class="mult_item">9</div>
+			<div id="mult2" class="mult_item">9</div>
 			<div id="multequals" class="mult_item">=</div>
 			<div id="product" class="mult_item">81</div>
 		</div>
 		<div id="state_canvas" class="component_canvas hidden">
-			Capital of 
-			<div id="component_state" class="component_item"></div> is 
+			Capital of
+			<div id="component_state" class="component_item"></div> is
 			<div id="component_capital" class="component_item"></div>
 		</div>
-
-
-
-		<div class="upcoming">
+		<div class="upcoming hidden">
 			<ul id="upcoming_list" class="upcoming-list">
 			</ul>
 		</div>
-<Br>
-		<img id="moon_phase_image" src="https://www.timeanddate.com/scripts/moon.php?i=.99&amp;p=.3&amp;r=0.311" width="300" height="300" >	
-		<div class="countdown hidden">
-			<div class="countdown_timer" id="countdown_timer"></div>
-		</div>
-	
-
-		<div id="button_bar" class="button_bar hidden">
-			<div class="button_slot">&nbsp;</div>
-			<div class="button_slot">&nbsp;</div>
-			<div class="button_slot">&nbsp;</div>
-		</div>
-		<div class="container hidden">
-			<div id="dashboard" class="dashboard table_4 hidden">
-				<div id="chore-list" class="cell basic-list chore-list"></div>
-				<div id="wish-list" class="cell basic-list wish-list"></div>
-				<div id="grocery-list" class="cell basic-list grocery-list"></div>
-				<div id="meal-list" class="cell basic-list meal-list cell"></div>
+		<div class="container">
+			<div class="column left">
+				<img id="moon_phase_image" src="https://www.timeanddate.com/scripts/moon.php?i=.99&amp;p=.3&amp;r=0.311"
+					width="300" height="300">
 			</div>
-			<div id="alerts" class="cell alerts hidden"></div>
-			<div id="countdown" class="cell alerts hidden">123</div>
-			<div id="finance_strip" class="table_5 hidden">
-				<div id="budget" class="cell_small">
-					Spending
-					<div class="bar-chart" id="barChart"></div>
-				</div>
-				<div id="debt" class="cell_small">
-					Utilities
-					<div class="pie-chart-container">
-						<div class="pie-chart" id="pieChart"></div>
-						<div class="label" id="label1"></div>
-						<div class="label" id="label2"></div>
-						<div class="label" id="label3"></div>
-						<div class="label" id="label4"></div>
-					</div>
+			<div class="column right" id="newyear_image"></div>
+		</div>
+		<div style="text-align: center; font-size: 80px;">3 Days until 2025</div>
+
+		<div style="text-align: center; font-size: 120px;" id="new_year_countdown">00:00:00</div>
+	</div>
+	</div>
+
+	</div>
+
+
+	<div class="countdown hidden">
+		<div class="countdown_timer" id="countdown_timer"></div>
+	</div>
+
+
+	<div id="button_bar" class="button_bar hidden">
+		<div class="button_slot">&nbsp;</div>
+		<div class="button_slot">&nbsp;</div>
+		<div class="button_slot">&nbsp;</div>
+	</div>
+	<div class="container hidden">
+		<div id="dashboard" class="dashboard table_4 hidden">
+			<div id="chore-list" class="cell basic-list chore-list"></div>
+			<div id="wish-list" class="cell basic-list wish-list"></div>
+			<div id="grocery-list" class="cell basic-list grocery-list"></div>
+			<div id="meal-list" class="cell basic-list meal-list cell"></div>
+		</div>
+		<div id="alerts" class="cell alerts hidden"></div>
+		<div id="countdown" class="cell alerts hidden">123</div>
+		<div id="finance_strip" class="table_5 hidden">
+			<div id="budget" class="cell_small">
+				Spending
+				<div class="bar-chart" id="barChart"></div>
+			</div>
+			<div id="debt" class="cell_small">
+				Utilities
+				<div class="pie-chart-container">
+					<div class="pie-chart" id="pieChart"></div>
 					<div class="label" id="label1"></div>
 					<div class="label" id="label2"></div>
 					<div class="label" id="label3"></div>
 					<div class="label" id="label4"></div>
 				</div>
-				<div id="eat-out" class="cell_small">eat-out
-					<div class="bar-chart" id="barChart_EatOut"></div>
-				</div>
-				<div id="savings" class="cell_small">Savings
-					<div class="bar-chart" id="barChart_Savings"></div>
-					<div id="goals" class="container_col1">
-						<div class="row">Dr. Pepper</div>
-						<div class="row">Dish Soap</div>
-						<div class="row">Milk</div>
-						<div class="row">Ham</div>
-						<div class="row">Salad & Croutons</div>
-						<div class="row">Taco Shells</div>
-						<div class="row">Taco Meat</div>
-					</div>
-				</div>
-				<div class="cell_small">
-					<div id="grocery" class="container_col1">
-						<div class="row">Dr. Pepper</div>
-						<div class="row">Dish Soap</div>
-						<div class="row">Milk</div>
-						<div class="row">Ham</div>
-					</div>
+				<div class="label" id="label1"></div>
+				<div class="label" id="label2"></div>
+				<div class="label" id="label3"></div>
+				<div class="label" id="label4"></div>
+			</div>
+			<div id="eat-out" class="cell_small">eat-out
+				<div class="bar-chart" id="barChart_EatOut"></div>
+			</div>
+			<div id="savings" class="cell_small">Savings
+				<div class="bar-chart" id="barChart_Savings"></div>
+				<div id="goals" class="container_col1">
+					<div class="row">Dr. Pepper</div>
+					<div class="row">Dish Soap</div>
+					<div class="row">Milk</div>
+					<div class="row">Ham</div>
+					<div class="row">Salad & Croutons</div>
+					<div class="row">Taco Shells</div>
+					<div class="row">Taco Meat</div>
 				</div>
 			</div>
-			<!-- <div id="chore-list" class="cell basic-list chore-list"></div>-->
+			<div class="cell_small">
+				<div id="grocery" class="container_col1">
+					<div class="row">Dr. Pepper</div>
+					<div class="row">Dish Soap</div>
+					<div class="row">Milk</div>
+					<div class="row">Ham</div>
+				</div>
+			</div>
 		</div>
-		<div class="scene hidden" id="scene">
-			<div class="moon"></div>
-		</div>
+		<!-- <div id="chore-list" class="cell basic-list chore-list"></div>-->
 	</div>
-		<script src="scripts/scripts.js"></script>
-		<script src="scripts/charts.js"></script>
-	
-		<script>
-			
-			const slices = [
-				{ color: '#4caf50', percent: 30 },
-				{ color: '#2196f3', percent: 25 },
-				{ color: '#ffeb3b', percent: 20 },
-				{ color: '#ff5722', percent: 25 },
-        	];
+	<div class="scene hidden" id="scene">
+		<div class="moon"></div>
+	</div>
+	</div>
+	<script src="scripts/scripts.js"></script>
+	<script src="scripts/charts.js"></script>
+	<script src="scripts/christmas.js"></script>
 
-			const labels = ['Internet', 'Power', 'Gas', 'Water'];
+	<script>
+		const slices = [{
+				color: '#4caf50',
+				percent: 30
+			},
+			{
+				color: '#2196f3',
+				percent: 25
+			},
+			{
+				color: '#ffeb3b',
+				percent: 20
+			},
+			{
+				color: '#ff5722',
+				percent: 25
+			},
+		];
 
-			createPieChart('pieChart', slices, labels, 300);
+		const labels = ['Internet', 'Power', 'Gas', 'Water'];
 
-		</script>
+		createPieChart('pieChart', slices, labels, 300);
+	</script>
 
-		<!-- <script src="scripts/backgrounds.js"></script> -->
-		<script src="scripts/math.js"></script>
-		<script src="scripts/statesandcapitals.js"></script>
-		<script src="scripts/upcoming.js"></script>
-		<script src="scripts/date_time.js"></script>
+	<!-- <script src="scripts/backgrounds.js"></script> -->
+	<script src="scripts/math.js"></script>
+	<script src="scripts/statesandcapitals.js"></script>
+	<script src="scripts/upcoming.js"></script>
+	<script src="scripts/date_time.js"></script>
 
 	<!-- 	<script src="scripts/image_slider.js"></script> -->
 
-	</body>
+</body>
+
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DHTML SnowStorm: Restart Example</title>
+    <script type="text/javascript" src="./scripts/snow.js"></script>
+    <script>
+        let snowstormInitialized = false;
+
+        // Function to load the Snowstorm script dynamically
+        function loadSnowstorm() {
+            const script = document.createElement('script');
+            script.src = "./scripts/snow.js";
+            script.onload = () => {
+                console.log('Snowstorm script loaded');
+                if (!snowstormInitialized) {
+                    snowstormInitialized = true;
+                    snowStorm.start(); // Ensure it starts the first time
+                }
+            };
+            document.body.appendChild(script);
+        }
+
+        // Function to remove the Snowstorm script
+        function unloadSnowstorm() {
+            const scripts = document.querySelectorAll('script[src="./scripts/snow.js"]');
+            scripts.forEach(script => script.remove());
+            console.log('Snowstorm script removed');
+        }
+
+        // Function to start the cycle
+        function startCycle() {
+            loadSnowstorm();
+
+            // Stop the snowstorm after 5 seconds
+            setTimeout(() => {
+                snowStorm.stop();
+                unloadSnowstorm();
+
+                // Restart after another 5 seconds
+                setTimeout(startCycle, 5000);
+            }, 30000);
+
+			// Schedule a page reload after 10 seconds
+            setTimeout(() => {
+                console.log('Reloading page...');
+                location.reload();
+            }, 10000); // 10 seconds (5 seconds snowstorm + 5 seconds for restart)
+   
+        }
+
+        // Initialize the snowstorm cycle
+        window.onload = startCycle;
+    </script>
+</head>
+<body style="background: #000; font: 100 1.75em Helvetica, Arial, sans-serif; color: #fff;">
+    <div style="text-align: center;">
+        <h1>Merry Christmas</h1>
+    </div>
+</body>
+</html>
