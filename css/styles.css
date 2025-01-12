@@ -10,7 +10,6 @@ body {
 	overflow: hidden;
 }
 
-
 .basic-cell {
 	background-color: black;
 	background-color: white;;
@@ -93,6 +92,7 @@ div {
 .main_container {
 	min-height: 100vh; /* Ensures body takes at least 100% of the viewport height */
     box-sizing: border-box; /* Includes padding and borders in the height calculation */
+	margin-top: 2px;
 }
 
 
@@ -176,4 +176,31 @@ div {
     background-color: #444;
     color: #fff;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures no wrapping of columns */
+    gap: 10px; /* Optional space between columns */
+}
+
+.column {
+    flex: 1; /* Equal width for both columns */
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional for visibility */
+}
+
+.left {
+    background-color: black; /* Light background for the left column */
+}
+
+.active-image {
+    background-color: black;
+    background-image: url('../images/cracker_barrel_kids.png');
+    background-size: contain; /* Ensures the whole image fits */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-position: center; /* Centers the image */
+}
+.countdown_current {
+    text-align: center; font-size: 60px; 
 }

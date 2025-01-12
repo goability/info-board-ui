@@ -1,7 +1,7 @@
 
 let stayDarkTime = 3000;
 let screenSaverTimeOut = 5000;
-let refreshTime = 1000;
+let refreshTime = 120000;//60*60*20;
 let refreshInfo = 5000;
 let refreshUpcoming = 3000;
 let sliderHold = 10000;
@@ -9,8 +9,10 @@ let sliderHold = 10000;
 let bar_chart_data = [];
 let temp = 1 ;
 
+let countDownNameToggle = false;
+
 //setInterval(updateList, refreshInfo); 
-setInterval(updateTime, refreshTime); 
+setInterval(updateCountdown, refreshTime); 
 //setInterval(updateUpcoming, refreshUpcoming); 
 
 let infoCells = ['grocery-list', 'wish-list', 'chores'];
@@ -73,10 +75,20 @@ function get_countdown_time_remaining()
 {
     const now = new Date();
     const currentYear = now.getFullYear();
-    const nextYear = currentYear + 1;
-    const newYears = new Date(nextYear, 0, 1); // Jan 1st of next year
+
+    let targetDate = new Date(currentYear, 0, 17);
+	let targetName = "Ivy's Birthday Party";
+
+	countDownNameToggle = !countDownNameToggle;
+
+	if (countDownNameToggle){
+		targetDate = new Date(currentYear, 0, 25);
+		targetName = "Violet's Birthday";
+	}
+
+	countDownNameToggle
     
-    const timeLeft = newYears - now;
+    const timeLeft = targetDate - now;
     
     // Convert to days, hours, minutes, seconds
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -88,9 +100,11 @@ function get_countdown_time_remaining()
 	const paddedMinutes = String(minutes).padStart(2, '0');
 	const paddedSeconds = String(seconds).padStart(2, '0');
 
-    return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+	const daysLeft = Math.floor((timeLeft/1000)/(60*60*24));
+    return `${daysLeft} Days until ${targetName}`;
+	// ${paddedMinutes}:${paddedSeconds}`;
 }	
-function updateTime() 
+function updateCountdown() 
 { 
 	const d = new Date();  
 	d.setHours(d.getHours());
@@ -103,7 +117,7 @@ function updateTime()
 	document.getElementById("date").innerHTML = currentDate;
 	var timeOptions = { hour:'numeric', minute:'numeric', hour12:true, second:'numeric'}; 
 	document.getElementById("time").innerHTML = d.toLocaleString(undefined, timeOptions);
-	document.getElementById("new_year_countdown").innerHTML = get_countdown_time_remaining();
+	document.getElementById("countdown_current").innerHTML = get_countdown_time_remaining();
 
 }
 function updateList(){	
