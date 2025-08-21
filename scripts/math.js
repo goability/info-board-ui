@@ -1,7 +1,7 @@
 let multiplicands = [9,9];
 let multiplyChangeEquationSeconds = 7;
 let multipleRefreshSolution = 5;
-setInterval(updateMultiply, multiplyChangeEquationSeconds*1000);
+//setInterval(updateMultiply, multiplyChangeEquationSeconds*1000);
 
 function updateMultiply(){
 	multiplicands.forEach((item, index) => {

@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Infobar</title>
 	<link rel="stylesheet" href="css/alerts.css" />
-	
 	<link rel="stylesheet" href="css/birthday.css" />
 	<link rel="stylesheet" href="css/charts.css" />
 	<link rel="stylesheet" href="css/chores.css" />
@@ -21,16 +20,16 @@
 </head>
 
 <body>
-	<div class="main_container">
-		<div class="container">
-			<div class="column left">
+	<div class="main_container active-image">
+		<div class="container hidden">
+			<div class="column left hidden">
 				<img id="moon_phase_image" src="https://www.timeanddate.com/scripts/moon.php?i=.99&amp;p=.3&amp;r=0.311"
-					width="300" height="300">
+					width="150" height="150">
 			</div>
-			<div class="column active-image"></div>
+			<div class="column hidden"></div>
 		</div>
-
-		<div class="countdown_current" id="countdown_current"></div>
+		<div><h1></h1></div>
+		<div class="countdown_current hidden" id="countdown_current"></div>
 
 		<div id="date_bar" class="date_bar">
 			<div id="time" class="currentTime"></div>
@@ -39,10 +38,11 @@
 	</div>
 	<script src="scripts/scripts.js"></script>
 	<script src="scripts/math.js"></script>
-	<script src="scripts/statesandcapitals.js"></script>
+	<!--<script src="scripts/statesandcapitals.js"></script>-->
 	<script src="scripts/upcoming.js"></script>
 	<script src="scripts/date_time.js"></script>
-	<script>updateCountdown();</script>
+	<script>updateCountdown(); updateClockTimer();</script>
+
 
 </body>
 

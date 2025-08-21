@@ -196,7 +196,7 @@ div {
 
 .active-image {
     background-color: black;
-    background-image: url('../images/cracker_barrel_kids.png');
+    background-image: url('../images/kids_easter.jpg');
     background-size: contain; /* Ensures the whole image fits */
     background-repeat: no-repeat; /* Prevents tiling */
     background-position: center; /* Centers the image */

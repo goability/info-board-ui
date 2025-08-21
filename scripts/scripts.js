@@ -1,10 +1,11 @@
 
 let stayDarkTime = 3000;
 let screenSaverTimeOut = 5000;
-let refreshTime = 120000;//60*60*20;
+let refreshTime = 3000;//60*60*20;
 let refreshInfo = 5000;
 let refreshUpcoming = 3000;
 let sliderHold = 10000;
+let clockTimer = 1000;
 
 let bar_chart_data = [];
 let temp = 1 ;
@@ -13,6 +14,7 @@ let countDownNameToggle = false;
 
 //setInterval(updateList, refreshInfo); 
 setInterval(updateCountdown, refreshTime); 
+setInterval(updateClockTimer, clockTimer);
 //setInterval(updateUpcoming, refreshUpcoming); 
 
 let infoCells = ['grocery-list', 'wish-list', 'chores'];
@@ -71,41 +73,53 @@ function screenSaver(turnOn=false)
 
 	screenSaverTimer = setInterval(screenSaver, theTimeOut); 
 }
-function get_countdown_time_remaining()
-{
+function get_countdown_time_remaining() {
     const now = new Date();
     const currentYear = now.getFullYear();
 
-    let targetDate = new Date(currentYear, 0, 17);
-	let targetName = "Ivy's Birthday Party";
+    // Initialize target date and name
+	let targetDate = new Date(currentYear, 0, 25, 22, 59); // January 24, 22:59
+	let targetName = "Violet's Birthday";
 
-	countDownNameToggle = !countDownNameToggle;
-
-	if (countDownNameToggle){
-		targetDate = new Date(currentYear, 0, 25);
-		targetName = "Violet's Birthday";
-	}
-
-	countDownNameToggle
-    
+    // Toggle logic for switching between targets
+	/*
+    countDownNameToggle = !countDownNameToggle;
+    if (countDownNameToggle) {
+        targetDate = new Date(currentYear, 0, 24, 22, 59); // January 24, 22:59
+        targetName = "Violet's Birthday";
+    }
+*/
     const timeLeft = targetDate - now;
-    
-    // Convert to days, hours, minutes, seconds
+
+    // Handle past date (negative timeLeft)
+    if (timeLeft < 0) {
+        return `The event "${targetName}" has already passed.`;
+    }
+
+    // Convert time to days, hours, minutes, and seconds
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = (days)*24 + Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    
-	const paddedHours = String(hours).padStart(2, '0');
-	const paddedMinutes = String(minutes).padStart(2, '0');
-	const paddedSeconds = String(seconds).padStart(2, '0');
 
-	const daysLeft = Math.floor((timeLeft/1000)/(60*60*24));
-    return `${daysLeft} Days until ${targetName}`;
-	// ${paddedMinutes}:${paddedSeconds}`;
-}	
+    // Format with leading zeros
+    const paddedHours = String(hours).padStart(2, '0');
+    const paddedMinutes = String(minutes).padStart(2, '0');
+    const paddedSeconds = String(seconds).padStart(2, '0');
+
+	txt = '';
+	if (hours<6){
+		txt = 'Under '
+	}
+    return `${txt} ${days} Days until ${targetName}`;
+}
 function updateCountdown() 
 { 
+	document.getElementById("countdown_current").innerHTML = get_countdown_time_remaining();
+
+}
+function updateClockTimer()
+{
 	const d = new Date();  
 	d.setHours(d.getHours());
 	var dayname = days[d.getDay()];
@@ -117,7 +131,6 @@ function updateCountdown()
 	document.getElementById("date").innerHTML = currentDate;
 	var timeOptions = { hour:'numeric', minute:'numeric', hour12:true, second:'numeric'}; 
 	document.getElementById("time").innerHTML = d.toLocaleString(undefined, timeOptions);
-	document.getElementById("countdown_current").innerHTML = get_countdown_time_remaining();
 
 }
 function updateList(){	
